@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Convoy Merge Defense — Beonyeonggyeol</title>
+<meta name="description" content="Convoy Merge Defense is an Android merge defense game in which you merge squad members in the cargo bed of an armored truck, evolve them, and hold off the zombie horde chasing you with rear-facing fire. Developed and operated by Beonyeonggyeol." />
+<meta name="theme-color" content="#0b1015" />
+<meta property="og:title" content="Convoy Merge Defense" />
+<meta property="og:description" content="Merge squad members in an armored truck's cargo bed, evolve them, and hold off the zombie horde chasing you with rear-facing fire. An Android merge defense game." />
+<meta property="og:type" content="website" />
+<link rel="alternate" hreflang="en" href="https://dudrnjs520-crypto.github.io/index-en.html" />
+<link rel="alternate" hreflang="ko" href="https://dudrnjs520-crypto.github.io/" />
+<style>
+  :root{
+    --bg:#0b1015;
+    --panel:#121a22;
+    --panel-2:#0f1620;
+    --line:#22303f;
+    --ink:#e3eaf3;
+    --dim:#93a5b8;
+    --amber:#f0a13c;
+    --amber-dim:#f0a13c33;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--amber);text-decoration:none;text-underline-offset:3px}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:748px;margin:0 auto;padding:0 20px}
+
+  /* ── header ── */
+  header.top{border-bottom:1px solid var(--line);background:#0b1015f2}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+  .brand:hover{text-decoration:none}
+  .mark{width:22px;height:22px;flex:0 0 22px;display:block}
+  nav.topnav{display:flex;align-items:center;gap:14px;font-size:.86rem}
+  nav.topnav a{color:var(--dim)}
+  nav.topnav a:hover{color:var(--ink)}
+  nav.topnav a.lang{color:var(--dim);border-left:1px solid var(--line);padding-left:14px}
+  nav.topnav a.lang:hover{color:var(--ink)}
+
+  /* ── hero ── */
+  .hero{padding:44px 0 8px}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 14px}
+  h1{
+    margin:0;
+    font-size:clamp(2rem,7.4vw,2.9rem);
+    line-height:1.24;
+    letter-spacing:-.03em;
+    font-weight:800;
+  }
+  .hero p.lead{margin:18px 0 0;color:#c2cfdc;font-size:1rem;max-width:36em}
+  .status{
+    display:flex;flex-wrap:wrap;align-items:center;gap:4px 9px;margin-top:24px;
+    border:1px solid var(--line);border-radius:12px;
+    padding:9px 15px;font-size:.82rem;color:var(--dim);background:var(--panel-2);
+    max-width:100%;
+  }
+  .status b{color:var(--ink);font-weight:600;white-space:nowrap}
+  .status .dot{flex:0 0 6px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block}
+
+  /* road graphic */
+  .scene{margin:26px 0 0;border-bottom:1px solid var(--line)}
+  .scene svg{display:block;width:100%;height:auto}
+
+  /* ── sections ── */
+  section{padding:34px 0 4px}
+  h2{
+    margin:0 0 16px;font-size:1.06rem;font-weight:700;letter-spacing:-.01em;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  h2 .num{font-size:.72rem;color:var(--amber);letter-spacing:.1em;font-weight:600}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 17px}
+  .card h3{margin:0 0 6px;font-size:.95rem;font-weight:700}
+  .card p{margin:0;font-size:.86rem;color:var(--dim);line-height:1.62}
+  .card .k{display:block;font-size:.7rem;letter-spacing:.12em;color:var(--amber);margin-bottom:8px;font-weight:600}
+
+  dl.info{margin:0;border-top:1px solid var(--line)}
+  dl.info > div{display:flex;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:.9rem}
+  dl.info dt{flex:0 0 8.5em;color:var(--dim)}
+  dl.info dd{margin:0;flex:1}
+
+  .dev{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px 6px}
+  .dev p{margin:0 0 12px;font-size:.9rem;color:#c2cfdc}
+  .dev p:last-child{margin-bottom:14px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:#1b2530;border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:#dbe6f2}
+  .nw{white-space:nowrap}
+  .ko{color:#a8b8c9}
+
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .links a{
+    border:1px solid var(--line);border-radius:9px;padding:9px 14px;font-size:.86rem;
+    color:var(--ink);background:var(--panel-2);
+  }
+  .links a:hover{border-color:var(--amber-dim);text-decoration:none;background:#16202b}
+
+  footer{margin-top:44px;border-top:1px solid var(--line);padding:22px 0 54px}
+  footer .wrap{font-size:.8rem;color:var(--dim);line-height:1.9}
+  footer a{color:var(--dim)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:520px){
+    .grid{grid-template-columns:1fr}
+    .hero{padding-top:34px}
+    dl.info > div{flex-direction:column;gap:2px}
+    dl.info dt{flex:none;font-size:.8rem}
+    nav.topnav{font-size:.82rem;gap:12px}
+    .brand{font-size:.9rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index-en.html">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1.2" y="4.6" width="21.6" height="14.8" rx="2.6" fill="none" stroke="#f0a13c" stroke-width="1.6"/>
+        <g fill="#f0a13c">
+          <rect x="4.2" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="9.8" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="15.4" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="4.2" y="12.9" width="4.4" height="3.6" rx="1"/>
+          <rect x="9.8" y="12.9" width="4.4" height="3.6" rx="1"/>
+          <rect x="15.4" y="12.9" width="4.4" height="3.6" rx="1"/>
+        </g>
+      </svg>
+      Convoy Merge Defense
+    </a>
+    <nav class="topnav">
+      <a href="privacy-en.html">Privacy</a>
+      <a href="terms-en.html">Terms</a>
+      <a class="lang" href="index.html" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <p class="eyebrow">Android · Merge Defense</p>
+      <h1>Convoy Merge<br />Defense</h1>
+      <p class="lead">
+        The highway already belongs to the zombie horde. What is left is a single armored truck.
+        Load six squad slots in the cargo bed, merge matching squad members to evolve them,
+        and hold off the zombies chasing you from behind with rear-facing fire until you reach your destination.
+        A casual merge defense you play in portrait, with one hand.
+      </p>
+      <div class="status"><span class="dot"></span><b>Google Play</b><span>In preparation for launch · Free (with ads and in-app purchases)</span></div>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 720 170" preserveAspectRatio="none" role="presentation">
+        <defs>
+          <linearGradient id="roadfade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0a13c" stop-opacity="0"/>
+            <stop offset="1" stop-color="#f0a13c" stop-opacity=".13"/>
+          </linearGradient>
+          <linearGradient id="horizon" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#16202b"/>
+            <stop offset="1" stop-color="#0b1015"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="720" height="170" fill="url(#horizon)"/>
+        <path d="M352 0 L368 0 L472 170 L248 170 Z" fill="#151d26"/>
+        <path d="M352 0 L368 0 L472 170 L248 170 Z" fill="url(#roadfade)"/>
+        <g fill="#f0a13c" opacity=".45">
+          <path d="M357.6 20 L362.4 20 L363.4 34 L356.6 34 Z"/>
+          <path d="M355.4 50 L364.6 50 L366 70 L354 70 Z"/>
+          <path d="M352.6 90 L367.4 90 L369.3 116 L350.7 116 Z"/>
+          <path d="M349 140 L371 140 L373.2 170 L346.8 170 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <section>
+      <h2><span class="num">01</span> About the Game</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="k">MERGE</span>
+          <h3>Six cargo slots, evolve by merging</h3>
+          <p>Drop a squad member onto another of the same class and level and it evolves one step (up to Lv.6). Five classes — pistol shooter, flamethrower, tesla engineer, sniper and mortar — plus two hidden combinations.</p>
+        </div>
+        <div class="card">
+          <span class="k">FIRE</span>
+          <h3>Rear-facing fire from the truck</h3>
+          <p>Squad members fire from the cargo bed at the road chasing behind. Keep the combo going and Fever raises your attack speed.</p>
+        </div>
+        <div class="card">
+          <span class="k">MODES</span>
+          <h3>Four modes</h3>
+          <p>A solo run through ten chapters, two-lane co-op defending two lanes with an AI partner, an endless ∞ Endless Run, and a weekly challenge whose rules change every week.</p>
+        </div>
+        <div class="card">
+          <span class="k">ADS</span>
+          <h3>Ads only when you want them</h3>
+          <p>No forced ads. All six rewarded ad spots play only when you tap them, and with the permanent ad-removal entitlement you get the same rewards straight away.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> Game Information</h2>
+      <dl class="info">
+        <div><dt>Platform</dt><dd>Android (Google Play)</dd></div>
+        <div><dt>Genre</dt><dd>Casual · Merge · Defense</dd></div>
+        <div><dt>Price</dt><dd>Free · includes rewarded ads and six in-app products</dd></div>
+        <div><dt>Language</dt><dd>Korean</dd></div>
+        <div><dt>How you play</dt><dd>Portrait · one-handed · single player (two-lane co-op is with an AI partner)</dd></div>
+        <div><dt>Data storage</dt><dd>Game progress is stored on the device — playable without an internet connection. Endless Run records are optionally published to the online leaderboard. (<a href="privacy-en.html">Privacy Policy</a>)</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> Developer</h2>
+      <div class="dev">
+        <p>
+          <strong>Beonyeonggyeol</strong> (<span class="ko">번영결</span>) is a one-person studio registered as a sole proprietorship in Seoul.
+          We handle the planning, development and operation of Convoy Merge Defense as well as customer inquiries ourselves.
+        </p>
+        <p>
+          Business name Beonyeonggyeol · Representative Cho Yeong-gwon<br />
+          Business Registration No. <span class="nw">797-21-02524</span><br />
+          Mail-Order Sales Business Report No. <span class="nw">2026-Seoul-Geumcheon-1636</span><br />
+          Contact <code>dudrnjs520@gmail.com</code>
+        </p>
+        <div class="links">
+          <a href="privacy-en.html">Privacy Policy</a>
+          <a href="terms-en.html">Terms of Service</a>
+          <a href="app-ads.txt">app-ads.txt</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Beonyeonggyeol · Convoy Merge Defense<br />
+    Contact dudrnjs520@gmail.com · <a href="privacy-en.html">Privacy Policy</a> · <a href="terms-en.html">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>

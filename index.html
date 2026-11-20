@@ -9,6 +9,8 @@
 <meta property="og:title" content="달리는 트럭 디펜스" />
 <meta property="og:description" content="무장 트럭의 짐칸에 대원을 합쳐 진화시키고, 뒤쫓아오는 좀비 떼를 후방 사격으로 막는 Android 머지 디펜스." />
 <meta property="og:type" content="website" />
+<link rel="alternate" hreflang="ko" href="https://dudrnjs520-crypto.github.io/" />
+<link rel="alternate" hreflang="en" href="https://dudrnjs520-crypto.github.io/index-en.html" />
 <style>
   :root{
     --bg:#0b1015;
@@ -43,9 +45,11 @@
   .brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;font-size:.95rem;letter-spacing:-.01em}
   .brand:hover{text-decoration:none}
   .mark{width:22px;height:22px;flex:0 0 22px;display:block}
-  nav.topnav{display:flex;gap:14px;font-size:.86rem}
+  nav.topnav{display:flex;align-items:center;gap:14px;font-size:.86rem}
   nav.topnav a{color:var(--dim)}
   nav.topnav a:hover{color:var(--ink)}
+  nav.topnav a.lang{color:var(--dim);border-left:1px solid var(--line);padding-left:14px}
+  nav.topnav a.lang:hover{color:var(--ink)}
 
   /* ── 히어로 ── */
   .hero{padding:44px 0 8px}
@@ -141,6 +145,7 @@
     <nav class="topnav">
       <a href="privacy.html">개인정보처리방침</a>
       <a href="terms.html">이용약관</a>
+      <a class="lang" href="index-en.html" lang="en" hreflang="en">English</a>
     </nav>
   </div>
 </header>
