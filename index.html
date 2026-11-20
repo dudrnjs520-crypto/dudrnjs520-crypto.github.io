@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>달리는 트럭 디펜스 — 번영결</title>
+<meta name="description" content="달리는 트럭 디펜스는 무장 트럭의 짐칸에 대원을 합쳐 진화시키고 뒤쫓아오는 좀비 떼를 후방 사격으로 막는 Android 머지 디펜스 게임입니다. 개발·운영: 번영결." />
+<meta name="theme-color" content="#0b1015" />
+<meta property="og:title" content="달리는 트럭 디펜스" />
+<meta property="og:description" content="무장 트럭의 짐칸에 대원을 합쳐 진화시키고, 뒤쫓아오는 좀비 떼를 후방 사격으로 막는 Android 머지 디펜스." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#0b1015;
+    --panel:#121a22;
+    --panel-2:#0f1620;
+    --line:#22303f;
+    --ink:#e3eaf3;
+    --dim:#93a5b8;
+    --amber:#f0a13c;
+    --amber-dim:#f0a13c33;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.75;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--amber);text-decoration:none;text-underline-offset:3px}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:748px;margin:0 auto;padding:0 20px}
+
+  /* ── 상단 ── */
+  header.top{border-bottom:1px solid var(--line);background:#0b1015f2}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+  .brand:hover{text-decoration:none}
+  .mark{width:22px;height:22px;flex:0 0 22px;display:block}
+  nav.topnav{display:flex;gap:14px;font-size:.86rem}
+  nav.topnav a{color:var(--dim)}
+  nav.topnav a:hover{color:var(--ink)}
+
+  /* ── 히어로 ── */
+  .hero{padding:44px 0 8px}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 14px}
+  h1{
+    margin:0;
+    font-size:clamp(2rem,7.4vw,2.9rem);
+    line-height:1.24;
+    letter-spacing:-.03em;
+    font-weight:800;
+  }
+  .hero p.lead{margin:18px 0 0;color:#c2cfdc;font-size:1rem;max-width:36em}
+  .status{
+    display:flex;flex-wrap:wrap;align-items:center;gap:4px 9px;margin-top:24px;
+    border:1px solid var(--line);border-radius:12px;
+    padding:9px 15px;font-size:.82rem;color:var(--dim);background:var(--panel-2);
+    max-width:100%;
+  }
+  .status b{color:var(--ink);font-weight:600;white-space:nowrap}
+  .status .dot{flex:0 0 6px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block}
+
+  /* 도로 그래픽 */
+  .scene{margin:26px 0 0;border-bottom:1px solid var(--line)}
+  .scene svg{display:block;width:100%;height:auto}
+
+  /* ── 섹션 ── */
+  section{padding:34px 0 4px}
+  h2{
+    margin:0 0 16px;font-size:1.06rem;font-weight:700;letter-spacing:-.01em;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  h2 .num{font-size:.72rem;color:var(--amber);letter-spacing:.1em;font-weight:600}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 17px}
+  .card h3{margin:0 0 6px;font-size:.95rem;font-weight:700}
+  .card p{margin:0;font-size:.86rem;color:var(--dim);line-height:1.68}
+  .card .k{display:block;font-size:.7rem;letter-spacing:.12em;color:var(--amber);margin-bottom:8px;font-weight:600}
+
+  dl.info{margin:0;border-top:1px solid var(--line)}
+  dl.info > div{display:flex;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:.9rem}
+  dl.info dt{flex:0 0 7.5em;color:var(--dim)}
+  dl.info dd{margin:0;flex:1}
+
+  .dev{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px 6px}
+  .dev p{margin:0 0 12px;font-size:.9rem;color:#c2cfdc}
+  .dev p:last-child{margin-bottom:14px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:#1b2530;border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:#dbe6f2}
+  .nw{white-space:nowrap}
+
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .links a{
+    border:1px solid var(--line);border-radius:9px;padding:9px 14px;font-size:.86rem;
+    color:var(--ink);background:var(--panel-2);
+  }
+  .links a:hover{border-color:var(--amber-dim);text-decoration:none;background:#16202b}
+
+  footer{margin-top:44px;border-top:1px solid var(--line);padding:22px 0 54px}
+  footer .wrap{font-size:.8rem;color:var(--dim);line-height:1.9}
+  footer a{color:var(--dim)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:520px){
+    .grid{grid-template-columns:1fr}
+    .hero{padding-top:34px}
+    dl.info > div{flex-direction:column;gap:2px}
+    dl.info dt{flex:none;font-size:.8rem}
+    nav.topnav{font-size:.82rem;gap:12px}
+    .brand{font-size:.9rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1.2" y="4.6" width="21.6" height="14.8" rx="2.6" fill="none" stroke="#f0a13c" stroke-width="1.6"/>
+        <g fill="#f0a13c">
+          <rect x="4.2" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="9.8" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="15.4" y="7.4" width="4.4" height="3.6" rx="1"/>
+          <rect x="4.2" y="12.9" width="4.4" height="3.6" rx="1"/>
+          <rect x="9.8" y="12.9" width="4.4" height="3.6" rx="1"/>
+          <rect x="15.4" y="12.9" width="4.4" height="3.6" rx="1"/>
+        </g>
+      </svg>
+      달리는 트럭 디펜스
+    </a>
+    <nav class="topnav">
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="terms.html">이용약관</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <p class="eyebrow">Android · Merge Defense</p>
+      <h1>달리는 트럭<br />디펜스</h1>
+      <p class="lead">
+        고속도로는 이미 좀비 떼의 것이 되었습니다. 남은 것은 무장 트럭 한 대.
+        짐칸 6칸에 대원을 태우고, 같은 대원끼리 합쳐 진화시키고,
+        뒤에서 쫓아오는 좀비를 후방 사격으로 막아내며 목적지까지 달립니다.
+        세로 화면, 한 손 조작으로 즐기는 캐주얼 머지 디펜스입니다.
+      </p>
+      <div class="status"><span class="dot"></span><b>Google Play</b><span>출시 준비 중 · 무료 (광고·인앱 결제 포함)</span></div>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 720 170" preserveAspectRatio="none" role="presentation">
+        <defs>
+          <linearGradient id="roadfade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0a13c" stop-opacity="0"/>
+            <stop offset="1" stop-color="#f0a13c" stop-opacity=".13"/>
+          </linearGradient>
+          <linearGradient id="horizon" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#16202b"/>
+            <stop offset="1" stop-color="#0b1015"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="720" height="170" fill="url(#horizon)"/>
+        <path d="M352 0 L368 0 L472 170 L248 170 Z" fill="#151d26"/>
+        <path d="M352 0 L368 0 L472 170 L248 170 Z" fill="url(#roadfade)"/>
+        <g fill="#f0a13c" opacity=".45">
+          <path d="M357.6 20 L362.4 20 L363.4 34 L356.6 34 Z"/>
+          <path d="M355.4 50 L364.6 50 L366 70 L354 70 Z"/>
+          <path d="M352.6 90 L367.4 90 L369.3 116 L350.7 116 Z"/>
+          <path d="M349 140 L371 140 L373.2 170 L346.8 170 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <section>
+      <h2><span class="num">01</span> 게임 소개</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="k">MERGE</span>
+          <h3>짐칸 6칸, 합성으로 진화</h3>
+          <p>같은 대원·같은 레벨끼리 겹치면 한 단계 진화합니다(최대 Lv.6). 권총 사수·화염방사병·테슬라 공병·저격수·박격포 5종에 히든 조합 2종.</p>
+        </div>
+        <div class="card">
+          <span class="k">FIRE</span>
+          <h3>트럭 뒤로 쏘는 후방 사격</h3>
+          <p>대원들은 짐칸에서 뒤쫓아오는 도로를 향해 사격합니다. 콤보를 이어가면 피버로 공격 속도가 올라갑니다.</p>
+        </div>
+        <div class="card">
+          <span class="k">MODES</span>
+          <h3>네 가지 모드</h3>
+          <p>10개 챕터의 솔로 주행, AI 파트너와 두 차선을 막는 2차선 협동, 끝나지 않는 ∞ 무한 주행, 매주 규칙이 바뀌는 주간 도전.</p>
+        </div>
+        <div class="card">
+          <span class="k">ADS</span>
+          <h3>원할 때만 보는 광고</h3>
+          <p>강제 광고는 없습니다. 보상형 광고 6곳은 모두 이용자가 직접 누를 때만 재생되고, 광고 제거 영구권을 구매하면 같은 보상을 바로 받습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> 게임 정보</h2>
+      <dl class="info">
+        <div><dt>플랫폼</dt><dd>Android (Google Play)</dd></div>
+        <div><dt>장르</dt><dd>캐주얼 · 머지 · 디펜스</dd></div>
+        <div><dt>이용 요금</dt><dd>무료 · 보상형 광고 및 인앱 결제 6종 포함</dd></div>
+        <div><dt>지원 언어</dt><dd>한국어</dd></div>
+        <div><dt>플레이 방식</dt><dd>세로 화면 · 한 손 조작 · 싱글 플레이(2차선 협동은 AI 파트너)</dd></div>
+        <div><dt>데이터 저장</dt><dd>게임 진행은 기기 내 저장 — 인터넷 없이 플레이 가능. 무한 주행 기록은 선택적으로 온라인 랭킹에 공개됩니다. (<a href="privacy.html">개인정보처리방침</a>)</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> 개발사</h2>
+      <div class="dev">
+        <p>
+          <strong>번영결</strong>은 서울에서 개인사업자로 등록된 1인 개발사입니다.
+          「달리는 트럭 디펜스」의 기획·개발·운영과 고객 문의를 직접 맡고 있습니다.
+        </p>
+        <p>
+          상호 번영결 · 대표 조영권<br />
+          사업자등록번호 <span class="nw">797-21-02524</span><br />
+          통신판매업 신고 <span class="nw">제2026-서울금천-1636호</span><br />
+          문의 <code>dudrnjs520@gmail.com</code>
+        </p>
+        <div class="links">
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="terms.html">이용약관</a>
+          <a href="app-ads.txt">app-ads.txt</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 번영결 · 달리는 트럭 디펜스<br />
+    문의 dudrnjs520@gmail.com · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
+  </div>
+</footer>
+
+</body>
+</html>
