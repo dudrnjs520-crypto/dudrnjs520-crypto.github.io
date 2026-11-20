@@ -70,6 +70,11 @@
   th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;color:#c7d3e0}
   th{background:#18222d;color:#e3eaf3;font-weight:600;font-size:.84rem}
   td b{color:#eef3f9}
+  /* five-column transfer table: tighter type so the columns stay readable */
+  table.five{font-size:.79rem;min-width:560px}
+  table.five th,table.five td{padding:8px 9px}
+  table.five th{font-size:.76rem}
+  table.five .sub{display:block;color:var(--dim);font-size:.94em;margin-top:2px}
 
   footer{margin-top:46px;border-top:1px solid var(--line);padding:22px 0 54px;font-size:.8rem;color:var(--dim);line-height:1.9}
   footer a{color:var(--dim)}
@@ -401,32 +406,32 @@
   <h2><span class="num">5.</span> Third-Party Provision, Processing Delegation and Cross-Border Transfer</h2>
   <p>We do not provide your information to third parties except in the cases below. The companies below process information only to the extent necessary to operate the Game.</p>
   <div class="table-scroll">
-    <table>
+    <table class="five">
       <thead><tr><th>Recipient</th><th>Country of transfer</th><th>Items transferred</th><th>Purpose</th><th>Retention period</th></tr></thead>
       <tbody>
         <tr>
-          <td data-label="Recipient"><b>Google LLC</b> / <b>Google Ireland Limited</b><br />(AdMob, UMP)</td>
+          <td data-label="Recipient"><b>Google LLC</b> / <b>Google Ireland Limited</b><span class="sub">AdMob, UMP</span></td>
           <td data-label="Country of transfer">United States / Ireland</td>
           <td data-label="Items transferred">Advertising ID, device and app information, in-app interactions, diagnostic information, approximate location based on IP address, ad consent choices</td>
           <td data-label="Purpose">Ad delivery and measurement, invalid-click prevention, ad consent management</td>
           <td data-label="Retention period">As set out in Google's Privacy Policy</td>
         </tr>
         <tr>
-          <td data-label="Recipient"><b>Supabase, Inc.</b><br />(database hosting; server location: Seoul, Republic of Korea)</td>
+          <td data-label="Recipient"><b>Supabase, Inc.</b><span class="sub">database hosting · server in Seoul, Korea</span></td>
           <td data-label="Country of transfer">United States (place of incorporation); storage and processing in the Seoul region, Republic of Korea</td>
           <td data-label="Items transferred">Nickname, player identifier, distance (km) and wave, record creation time</td>
           <td data-label="Purpose">Storing and reading leaderboard records</td>
           <td data-label="Retention period">Until a deletion request or the end of the Game service</td>
         </tr>
         <tr>
-          <td data-label="Recipient"><b>Supabase, Inc.</b><br />(Realtime relay; relay server location: Seoul, Republic of Korea)</td>
+          <td data-label="Recipient"><b>Supabase, Inc.</b><span class="sub">Realtime relay · server in Seoul, Korea</span></td>
           <td data-label="Country of transfer">United States (place of incorporation); relay in the Seoul region, Republic of Korea</td>
           <td data-label="Items transferred">Room code, room password (optional), nickname, session identifier, real-time combat and deployment state, squad upgrade information</td>
           <td data-label="Purpose">Real-time relay to the other player in the same room during Online Co-op</td>
           <td data-label="Retention period">Processed only temporarily while the match runs; no permanent storage afterwards</td>
         </tr>
         <tr>
-          <td data-label="Recipient"><b>Google LLC</b><br />(Google Play billing)</td>
+          <td data-label="Recipient"><b>Google LLC</b><span class="sub">Google Play billing</span></td>
           <td data-label="Country of transfer">United States / Ireland</td>
           <td data-label="Items transferred">Purchase token, product ID, order information</td>
           <td data-label="Purpose">Processing payments, confirming that items are granted</td>
